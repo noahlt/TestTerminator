@@ -3,7 +3,6 @@
 //  TestTerminator
 //
 //  Created by Noah Tye on 1/15/20.
-//  Copyright © 2020 RunKit. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -15,12 +14,18 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+    NSLog(@"NSLog applicationDidFinishLaunching");
 }
 
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSNotification *)aNotification {
+    printf("printf applicationShouldTerminate");
+    NSLog(@"NSLog applicationShouldTerminate");
+    return NSTerminateNow;
+}
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
+    printf("printf applicationWillTerminate");
+    NSLog(@"NSLog applicationWillTerminate");
 }
 
 
